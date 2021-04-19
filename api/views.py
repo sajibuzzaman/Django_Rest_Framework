@@ -10,3 +10,11 @@ class ProductAPIView(generics.ListAPIView):
 class CategoryAPIView(generics.ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
+class ProductAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+class ProductAPINewView(generics.ListCreateAPIView):
+    queryset = Product.objects.all().order_by('-id')[:1]
+    serializer_class = ProductSerializer
