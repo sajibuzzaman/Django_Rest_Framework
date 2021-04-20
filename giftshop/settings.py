@@ -48,16 +48,24 @@ INSTALLED_APPS = [
     #rest framework
     'api',
     'rest_framework',
+    'corsheaders',
+   
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+# REST FRAMEWORK CONFIG
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
-    ]
+    ],
+    
 }
 
 MIDDLEWARE = [
+    # CORS MIDDLEWARE
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -66,6 +74,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# CORS CONFIG
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000',  # react
+)
+
 
 ROOT_URLCONF = 'giftshop.urls'
 
