@@ -32,3 +32,11 @@ http://127.0.0.1:8000/api/
 ~~~
 http://127.0.0.1:8000/api/category/
 ~~~
+**For Authentication**
+~~~
+      http://127.0.0.1:8000/api/rest-auth/login/
+      http://127.0.0.1:8000/api/rest-auth/logout/
+      http://127.0.0.1:8000/api/rest-auth/password/reset/
+      http://127.0.0.1:8000/api/rest-auth/password/reset/confirm/
+      http://127.0.0.1:8000/api/rest-auth/registration/
+~~~
