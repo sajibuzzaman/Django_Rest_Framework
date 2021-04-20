@@ -48,9 +48,21 @@ INSTALLED_APPS = [
     #rest framework
     'api',
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'rest_auth.registration',
     'corsheaders',
-   
+
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount'
+    
 ]
+SITE_ID = 1
+# for showing email my terminal if set mail than its not need
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # REST FRAMEWORK CONFIG
@@ -58,7 +70,11 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ],
-    
+    # API AUTHENTICATION
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
 }
 
 MIDDLEWARE = [
@@ -77,7 +93,7 @@ MIDDLEWARE = [
 
 # CORS CONFIG
 CORS_ORIGIN_WHITELIST = (
-    'localhost:3000',  # react
+    'http://localhost:3000',  # react
 )
 
 
